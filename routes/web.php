@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,5 +29,21 @@ Route::middleware('auth')->group(function () {
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
+
+
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
+    Route::controller(DashboardController::class)->group(function () {
+        Route::get('/userprofile','Index');
+        Route::get('/userprofile2','Index2');
+        Route::get('/userprofile3','Index3');
+        Route::get('/userprofile4','Index3');
+          
+      });
+    
+    });
+
+
+
 
 require __DIR__.'/auth.php';
