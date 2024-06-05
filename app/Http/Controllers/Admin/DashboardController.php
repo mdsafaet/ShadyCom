@@ -9,18 +9,7 @@ class DashboardController extends Controller
 {
     public function index(){
         
-        return view ('userprofile');
+        return view ('admin.dashboard');
     }
-    public function index2(){
-        
-        return view ('userprofile');
-    }
-    public function index3(){
-        
-        return view ('userprofile');
-    }
-    public function index4(){
-        
-        return view ('userprofile');
-    }
+  
 }

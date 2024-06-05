@@ -34,10 +34,8 @@ Route::middleware('auth')->group(function () {
 
 Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::controller(DashboardController::class)->group(function () {
-        Route::get('/userprofile','Index');
-        Route::get('/userprofile2','Index2');
-        Route::get('/userprofile3','Index3');
-        Route::get('/userprofile4','Index3');
+        Route::get('/admin/dashboard','Index');
+        
           
       });
     
