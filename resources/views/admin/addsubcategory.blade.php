@@ -1,4 +1,7 @@
 @extends('admin.layouts.template')
 @section('content')
-<h2>add subCategory</h2>
+@section('page_title')
+Add SubCategory-shadycom
+@endsection
+<h1> add Sub</h1>
 @endsection
