@@ -17,6 +17,7 @@ Add SubCategory-shadycom
                 </div>
                 <div class="card-body">
                     <form action="" method="POST">
+                    
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="subcategory-name">SubCategory Name</label>
                             <div class="col-sm-10">
