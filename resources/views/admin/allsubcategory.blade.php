@@ -26,15 +26,17 @@ All SubCategory-shadycom
                 </thead>
                 <tbody class="table-border-bottom-0">
                     <tr>
-                        <td>1</td>
-                        <td>Fan</td>
-                        <td>Electronics</td>
-                        <td>100</td>
+                        @foreach ($allsubcategories as $subcategory)
+                        <td>{{$subcategory->id}}</td>
+                        <td>{{$subcategory->sub_category_name}}</td>
+                        <td>{{$subcategory->category_name}}</td>
+                        <td>{{$subcategory->product_count}}</td>
                         <td>
                             <a href="" class="btn btn-primary">Edit</a>
                             <a href="" class="btn btn-warning">Delete</a>
                         </td>
                     </tr>
+                    @endforeach
                     <!-- Additional rows would go here -->
                 </tbody>
             </table>
