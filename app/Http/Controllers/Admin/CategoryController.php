@@ -72,6 +72,7 @@ class CategoryController extends Controller
 
         Category::findOrFail($id)->delete();
         return redirect()->route('allcategory')->with ('message',"Category Deleted Successfully!");
+        
     }
 
 

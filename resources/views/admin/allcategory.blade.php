@@ -28,7 +28,7 @@ All Category-shadycom
                         @foreach ($categories as $category)
                         <td>{{$category->id}}</td>
                         <td>{{$category->category_name}}</td>
-                        <td>{{$category->subcategory_count}}</td>
+                        <td>{{$category->sub_category_count}}</td>
                         <td>{{$category->slug}}</td>
 
         

@@ -7,6 +7,12 @@ All SubCategory-shadycom
     <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Page/</span>All SubCategory</h4>
     <div class="card">
         <h5 class="card-header">Available Sub Category Information</h5>
+        @if(@session()->has('message'))
+        <div class="alert alert-success">
+           {{session()->get('message')}}
+        </div>
+       @endif 
+
         <div class="table-responsive text-nowrap">
             <table class="table">
                 <thead class="table-light">
