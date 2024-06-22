@@ -52,4 +52,19 @@ class SubCategoryController extends Controller
       
 
     }
+    public function EditSubCategory($id){
+
+        $subcatinfo = SubCategory::findOrFail($id);
+ 
+        return view ('admin.editsubcat',compact('subcatinfo'));
+
+    }
+
+    public function UpdateSubCategory(Request $request){
+        $request->validate([
+            'sub_category_name' => 'required|unique:subcategories',
+        ]);
+
+        $subcatid 
+
 }
