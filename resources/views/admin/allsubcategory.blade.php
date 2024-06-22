@@ -33,7 +33,7 @@ All SubCategory-shadycom
                         <td>{{$subcategory->product_count}}</td>
                         <td>
                             <a href="{{route('editsubcat',$subcategory->id)}}" class="btn btn-primary">Edit</a>
-                            <a href="{{route('deletesubcat',$subcategory->id)}" class="btn btn-warning">Delete</a>
+                            <a href="{{route('deletesubcat',$subcategory->id)}}" class="btn btn-warning">Delete</a>
                         </td>
                     </tr>
                     @endforeach

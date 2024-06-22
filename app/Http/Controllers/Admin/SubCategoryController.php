@@ -65,6 +65,27 @@ class SubCategoryController extends Controller
             'sub_category_name' => 'required|unique:subcategories',
         ]);
 
-        $subcatid 
+        $subcatid = $request->subcatid;
+
+        SubCategory::findOrFail($subcatid)->update([
+            'sub_category_name'=>$request->sub_category_name,
+            'slug'=>strtolower(str_replace('','-',$request->sub_category_name))
+        ]);
+     
+         return redirect()->route('allsubcategory')->with ('message',"Sub Category Updated Successfully!");
 
 }
+
+public function DeleteSubCategory($id){
+
+    $cat_id = Subcategory::where('id',$id)->value('category_id');
+
+    Subcategory::findOrFail($id)->delete();
+    
+    Category::where('id',$cat_id)->decrement('sub_category_count',1);
+
+    return redirect()->route('allsubcategory')->with ('message',"Sub Category Deleted Successfully!");
+    
+}
+}
+
