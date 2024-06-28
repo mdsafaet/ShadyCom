@@ -26,7 +26,7 @@ Add Product-shadycom
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="subcategory-name">Product Price</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="product-price" name="product_price" placeholder="12" />
+                                <input type="text" class="form-control" id="price" name="price" placeholder="12" />
                             </div>
                         </div>
                         <div class="row mb-3">
