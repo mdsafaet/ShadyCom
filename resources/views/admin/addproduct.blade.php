@@ -20,52 +20,53 @@ Add Product-shadycom
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="subcategory-name">Product Name</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="product-name" name="product_name" placeholder="Electronics" />
+                                <input type="text" class="form-control" id="product_name" name="product_name" placeholder="" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="subcategory-name">Product Price</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="price" name="price" placeholder="12" />
+                                <input type="text" class="form-control" id="price" name="price" placeholder="" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="subcategory-name">Product Quantity</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="product-quantity" name="product_quantity" placeholder="100" />
+                                <input type="text" class="form-control" id="quantity" name="quantity" placeholder="" />
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="subcategory-name">Product Short  Description</label>
                             <div class="col-sm-10">
-                              <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                              <textarea class="form-control" name="product_short_des" id="product_short_des" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="subcategory-name">Product long Description</label>
                             <div class="col-sm-10">
-                                <textarea class="form-control" name="" id="" cols="30" rows="10"></textarea>
+                                <textarea class="form-control" name="product_long_des" id="product_long_des" cols="30" rows="10"></textarea>
                             </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="select-category">Select Category</label>
                             <div class="col-sm-10">
-                                <select class="form-select" id="select-category" name="select_category" aria-label="Default select example">
+                                <select class="form-select" id="product_category_id" name="product_category_id" aria-label="Default select example">
                                     <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach ($categories as $category)
+                                    <option value="{{$category->id }}">{{$category->category_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
+                        </div>
                         </div>
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="select-category">Select SubCategory</label>
                             <div class="col-sm-10">
-                                <select class="form-select" id="select-category" name="select_category" aria-label="Default select example">
+                                <select class="form-select" id="product_sub_category_id" name="product_sub_category_id" aria-label="Default select example">
                                     <option selected>Open this select menu</option>
-                                    <option value="1">One</option>
-                                    <option value="2">Two</option>
-                                    <option value="3">Three</option>
+                                    @foreach ($subcategories as $subcategory)
+                                    <option value="{{$subcategory->id }}">{{$subcategory->sub_category_name }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
