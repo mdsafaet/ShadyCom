@@ -11,7 +11,8 @@ use App\Models\Product;
 class ProductController extends Controller
 {
     public function Index(){
-        return view('admin.allproduct');
+        $products = Product::latest()->get();
+        return view('admin.allproduct',compact('products'));
     }
 
     public function AddProduct(){
@@ -29,10 +30,10 @@ class ProductController extends Controller
             'quantity' => 'required',
             'product_short_des' => 'required',
             'product_long_des' => 'required',
-            'product_image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'product_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        $image = $request->file('product_image');
+        $image = $request->file('product_img');
         $image_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
         $image->move(public_path('upload/'), $image_name);
         $image_url = 'upload/' . $image_name;
@@ -61,5 +62,26 @@ class ProductController extends Controller
         SubCategory::where('id', $subcategory_id)->increment('product_count', 1);
 
         return redirect()->route('allproduct')->with('message', "Product Added Successfully!");
+    }
+
+    public function EditProductImg($id){
+        $productinfo = Product::findOrFail($id);
+        return view('admin.editproductimg', compact('productinfo'));
+    }
+    public function UpdateProductImg(Request $request){
+        $request->validate([
+            'product_img' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+        ]);
+
+        $id = $request->id;
+        $image = $request->file('product_img');
+        $image_name = hexdec(uniqid()) . '.' . $image->getClientOriginalExtension();
+        $image->move(public_path('upload/'), $image_name);
+        $image_url = 'upload/' . $image_name;
+
+        Product::findOrFail($id)->update([
+            'product_img' => $image_url,
+        ]);
+        return redirect()->route('allproduct')->with('message', "Product Image Updated Successfully!");
     }
 }

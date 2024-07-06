@@ -66,8 +66,11 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
       Route::get('/admin/all-product', 'Index')->name('allproduct');
       Route::get('/admin/add-product', 'AddProduct')->name('addproduct');
       Route::post('/admin/store-product', 'StoreProduct')->name('storeproduct');  
-       
-             
+      Route::get('/admin/edit-product-img/{id}', 'EditProductImg')->name('editproductimg');
+      Route::post('/admin/update-product-img', 'UpdateProductImg')->name('updateproductimg');
+    
+    
+               
   });
 
   Route::controller(OrderController::class)->group(function () {

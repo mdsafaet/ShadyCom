@@ -73,7 +73,7 @@ Add Product - shadycom
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="formFile">Upload Product Image</label>
                             <div class="col-sm-10">
-                                <input class="form-control" type="file" id="formFile" name="product_image"/>
+                                <input class="form-control" type="file" id="formFile" name="product_img"/>
                             </div>
                         </div>
                         <div class="row justify-content-end">
