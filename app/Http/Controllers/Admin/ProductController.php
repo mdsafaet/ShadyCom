@@ -58,8 +58,8 @@ class ProductController extends Controller
             'product_img' => $image_url,
         ]);
 
-        Category::where('id', $category_id)->increment('product_count', 1);
-        SubCategory::where('id', $subcategory_id)->increment('product_count', 1);
+        Category::where('id', $category_id)->increment('product_count');
+        SubCategory::where('id', $subcategory_id)->increment('product_count');
 
         return redirect()->route('allproduct')->with('message', "Product Added Successfully!");
     }
@@ -118,8 +118,8 @@ class ProductController extends Controller
 
         $product = Product::findOrFail($id)->delete();
     
-       Category::where('id',$cat_id)->decrement('product_count',1);
-     SubCategory::where('id',$subcat_id)->decrement('product_count',1);
+       Category::where('id',$cat_id)->decrement('product_count');
+     SubCategory::where('id',$subcat_id)->decrement('product_count');
 
      return redirect()->route('allproduct')->with ('message',"Product Deleted Successfully!");
 
