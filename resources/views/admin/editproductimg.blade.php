@@ -26,7 +26,7 @@ Edit Product Image - shadycom
                         </div>
 
                         <input type="hidden" name="id" value="{{$productinfo->id}}">
-                      
+
                         <div class="row mb-3">
                             <label class="col-sm-2 col-form-label" for="formFile">Upload New Image</label>
                             <div class="col-sm-10">
