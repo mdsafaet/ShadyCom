@@ -1,4 +1,6 @@
-
+@php
+$categories = App\Models\Category::latest()->get();    
+@endphp
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -77,18 +79,21 @@
                   <div id="mySidenav" class="sidenav">
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                      <a href="index.html">Home</a>
-                     <a href="fashion.html">Fashion</a>
-                     <a href="electronic.html">Electronic</a>
-                     <a href="jewellery.html">Jewellery</a>
+                    
+                     @foreach ($categories as $category)
+                     <a href="fashion.html">{{ $category->category_name }}</a>
+                     @endforeach
+                  
                   </div>
                   <span class="toggle_icon" onclick="openNav()"><img src="{{asset('home/images/toggle-icon.png')  }}"></span>
                   <div class="dropdown">
                      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">All Category 
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" href="#">Something else here</a>
+                        @foreach ($categories as $category)
+                              <a class="dropdown-item" href="#">{{ $category->category_name }}</a>
+                        @endforeach
+                        
                      </div>
                   </div>
                   <div class="main">
@@ -137,7 +142,7 @@
       </div>
       <!-- banner bg main end -->
       <!-- fashion section start -->
-      <div class="container-p9">
+      <div class="container-p9" style="margin-top: 200px">
             @yield('main-content')
       </div>
       <!-- jewellery  section end -->
