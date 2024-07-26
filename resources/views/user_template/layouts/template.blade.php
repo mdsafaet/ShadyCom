@@ -12,7 +12,7 @@ $categories = App\Models\Category::latest()->get();
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Eflyer</title>
+      <title>ShadyCom</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -50,7 +50,7 @@ $categories = App\Models\Category::latest()->get();
                      <div class="custom_menu">
                         <ul>
                            <li><a href="#">Best Sellers</a></li>
-                           <li><a href="{{route('category')}}">Gift Ideas</a></li>
+                           <li><a href="">Gift Ideas</a></li>
                            <li><a href="{{route('newrelease')}}">New Releases</a></li>
                            <li><a href="{{route('todaysdeal')}}">Today's Deals</a></li>
                            <li><a href="{{route('customerservice')}}">Customer Service</a></li>
@@ -79,9 +79,9 @@ $categories = App\Models\Category::latest()->get();
                   <div id="mySidenav" class="sidenav">
                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
                      <a href="index.html">Home</a>
-                    
                      @foreach ($categories as $category)
-                     <a href="fashion.html">{{ $category->category_name }}</a>
+                     <a href="{{route('category',[$category->id,$category->slug]) }}">
+                        {{ $category->category_name }}</a>
                      @endforeach
                   
                   </div>
@@ -91,7 +91,7 @@ $categories = App\Models\Category::latest()->get();
                      </button>
                      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
                         @foreach ($categories as $category)
-                              <a class="dropdown-item" href="#">{{ $category->category_name }}</a>
+                              <a class="dropdown-item" href="{{route('category',[$category->id,$category->slug]) }}">{{ $category->category_name }}</a>
                         @endforeach
                         
                      </div>
@@ -170,7 +170,7 @@ $categories = App\Models\Category::latest()->get();
       <!-- copyright section start -->
       <div class="copyright_section">
          <div class="container">
-            <p class="copyright_text">© 2020 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
+            <p class="copyright_text">© 2024 All Rights Reserved. Design by <a href="https://html.design">Free html  Templates</a></p>
          </div>
       </div>
       <!-- copyright section end -->
